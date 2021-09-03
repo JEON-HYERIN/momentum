@@ -116,6 +116,27 @@ ul#todo-list li button {
   font-size: 12px;
 }
 
+#weather {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+#weather .temp {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#weather .weather {
+  font-size: 14px;
+  color: #bdbdbd;
+}
+
+#weather .city {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 /* 애니메이션 */
 @keyframes fadeIn {
   0% {
@@ -145,5 +166,10 @@ ul#todo-list li button {
     position: relative;
     bottom: 0;
     left: 0;
+  }
+
+  #weather {
+    top: 0;
+    right: 5px;
   }
 }

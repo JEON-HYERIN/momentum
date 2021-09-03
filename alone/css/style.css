@@ -1,0 +1,13 @@
+/* COMMON */
+
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #e0e0e0;
+}
+
+.hidden {
+  display: none;
+}

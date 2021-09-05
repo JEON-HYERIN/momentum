@@ -1,30 +1,23 @@
 const loginForm = document.querySelector('#login__form');
-const loginBtn = loginForm.querySelector('.login__btn');
-const loginText = loginForm.querySelector('input[type="text"]');
-const userName = document.querySelector('.username');
-const USERNAME_KEY = 'userName';
-const HIDDEN_CLASSNAME = 'hidden';
+const loginInput = loginForm.querySelector('input[type="text"]');
+const userName = document.querySelector('h1.username');
+const USERNAME_KEY = 'username';
 
-function savedUserName () {
-  const nameValue = loginText.value;
-  localStorage.setItem(USERNAME_KEY, nameValue);
-  showUserName(nameValue);
-}
+const savedUserName = localStorage.getItem(USERNAME_KEY);
 
 function showUserName (username) {
+  loginForm.classList.add('hidden');
   userName.textContent = `Hello ${username}`;
-  userName.classList.remove(HIDDEN_CLASSNAME);
+  userName.classList.remove('hidden');
 }
 
-const getUserName = localStorage.getItem(USERNAME_KEY);
-
-if (getUserName === null) {
-  loginForm.classList.remove(HIDDEN_CLASSNAME);
+if (savedUserName !== null) {
+  showUserName(savedUserName);
+} else {
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    loginForm.classList.add(HIDDEN_CLASSNAME);
-    savedUserName();
+    const loginInputValue = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, loginInputValue);
+    showUserName(loginInputValue);
   });
-} else {
-  showUserName(getUserName);
 }

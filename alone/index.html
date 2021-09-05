@@ -7,10 +7,10 @@
   <title>Momentum</title>
   <link rel="icon" href="./img/favicon.png">
   <link rel="stylesheet" href="./css/style.css">
-  <script defer src="./js/greetings.js"></script> 
-  <script defer src="./js/clock.js"></script> 
+  <script defer src="./js/greetings.js"></script>
+  <script defer src="./js/clock.js"></script>
   <script defer src="./js/background.js"></script>
-  <script defer src="./js/quote.js"></script>
+  <script defer src="./js/quotes.js"></script>
   <script defer src="./js/todo.js"></script>
 </head>
 <body>
@@ -19,15 +19,20 @@
       <h2></h2>
     </div>
     <div class="login">
-    <form id="login__form" class="hidden">
-      <input type="text" placeholder="what is your name?" max-length ="15" required/>
-      <input type="submit" class="login__btn" value="Login" />
-    </form>
-      <h1 class="username" class="hidden"></h1>
+      <form id="login__form">
+        <input type="text" placeholder="what is your name?" maxlength="15" required />
+      </form>
+      <h1 class="username hidden"></h1>
     </div>
-    <div class="quote">
-      <span></span>
-      <span></span>
+    <div class="todo">
+      <form id="todo__form">
+        <input type="text" placeholder="Write a To Do here" required />
+      </form>
+      <ul class="todo__menu"></ul>
+    </div>
+    <div class="quotes">
+      <span class="quote"></span>
+      <span class="author"></span>
     </div>
   </section>
 </body>

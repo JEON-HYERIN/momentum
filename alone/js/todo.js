@@ -8,9 +8,9 @@ todoForm.addEventListener('submit', event => {
   event.preventDefault();
   const toDoValue = todoInput.value;
   todoInput.value = '';
-  todosObj = {
+  const todosObj = {
+    text: toDoValue,
     id: Date.now(),
-    text: toDoValue
   };
   todos.push(todosObj);
   localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
@@ -24,22 +24,23 @@ function showToDos(newToDo) {
   span.textContent = newToDo.text;
   const button = document.createElement('button');
   button.textContent = '✖';
-  todoMenu.appendChild(li);
   li.appendChild(span);
   li.appendChild(button);
+  todoMenu.appendChild(li);
   button.addEventListener('click', event => {
     const li = event.target.parentElement;
-    todos = todos.filter(function (item) {
-      return item.id !== li.id
-    });
-    console.log(todos)
     li.remove();
+    todos = todos.filter(function (todo) {
+      return todo.id !== parseInt(li.id);
+    });
+    localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
   });
 }
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
+  todos = parsedToDos; //전에있던 todos복원
   parsedToDos.forEach(item => {
     showToDos(item);
   });
